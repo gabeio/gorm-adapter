@@ -455,9 +455,9 @@ func (a *Adapter) truncateTable() error {
 	case "sqlserver":
 		sql = fmt.Sprintf("truncate table %s", a.getFullTableName())
 	case "mysql":
-		sql = fmt.Sprintf("truncate table %s", a.getFullTableName())
+		sql = fmt.Sprintf("delete from %s", a.getFullTableName())
 	default:
-		sql = fmt.Sprintf("truncate table %s", a.getFullTableName())
+		sql = fmt.Sprintf("delete from %s", a.getFullTableName())
 	}
 	return a.db.Exec(sql).Error
 }
